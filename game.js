@@ -189,7 +189,7 @@ function tryMove(idx) {
       renderPuzzle();
       playSound("win", "Puzzle complete! Well done.");
       announce("Puzzle complete! Well done.");
-      puzzle1Complete.hidden = false;
+      puzzle1Complete.hidden = false; // <-- ensure this line is present
     }
   } else {
     playSound("invalid", "Invalid move.");
