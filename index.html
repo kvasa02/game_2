@@ -13,28 +13,78 @@
     <header class="mb-4">
       <h1 id="game-title" class="text-center mb-3">Accessible Puzzle Adventure</h1>
       <nav aria-label="Main menu" class="d-flex justify-content-center gap-3">
-        <button id="start-btn" class="btn btn-primary">Start Game</button>
+        <button id="start-btn" class="btn btn-primary">Start Adventure</button>
         <button id="settings-btn" class="btn btn-secondary">Settings</button>
       </nav>
     </header>
 
     <section id="story" hidden aria-live="polite" class="mb-4">
-      <h2>Adventure Begins!</h2>
-      <p id="story-text" class="lead">
-        You arrive at the ancient temple. To open the door, solve the puzzle below.
-      </p>
-    </section>
-
-    <section id="puzzle-section" aria-label="Puzzle" hidden>
-      <h2 id="puzzle-title" class="mb-3">Sliding Puzzle</h2>
-      <div id="puzzle-board" tabindex="0" aria-label="Sliding puzzle board" class="mx-auto mb-3"></div>
-      <div id="puzzle-caption" aria-live="polite" class="mb-3"></div>
-      <div class="d-flex gap-2 justify-content-center mb-3">
-        <button id="restart-puzzle-btn" class="btn btn-warning">Restart Puzzle</button>
-        <button id="next-story-btn" class="btn btn-success" hidden>Continue Adventure</button>
+      <div class="alert alert-info" id="story-text">
+        <strong>Chapter 1:</strong> You arrive at the ancient temple. To open the door, solve the sliding puzzle.
       </div>
     </section>
 
+    <!-- Level Selector -->
+    <section id="level-select" hidden class="mb-4">
+      <div class="card p-3 mx-auto" style="max-width:420px;">
+        <h2 class="mb-3">Pick a Puzzle</h2>
+        <div class="d-grid gap-2">
+          <button id="level1-btn" class="btn btn-outline-primary">Level 1: Sliding Puzzle</button>
+          <button id="level2-btn" class="btn btn-outline-success">Level 2: Memory Pattern</button>
+        </div>
+        <button id="back-to-story" class="btn btn-secondary mt-3">Back</button>
+      </div>
+    </section>
+
+    <!-- Sliding Puzzle -->
+    <section id="puzzle-section" aria-label="Sliding Puzzle" hidden>
+      <div class="card p-4 mb-3">
+        <h2 id="puzzle-title" class="mb-3">Sliding Puzzle</h2>
+        <div id="puzzle-board" tabindex="0" aria-label="Sliding puzzle board" class="mx-auto mb-3"></div>
+        <div id="puzzle-caption" aria-live="polite" class="mb-3"></div>
+        <div class="d-flex gap-2 justify-content-center mb-3">
+          <button id="restart-puzzle-btn" class="btn btn-warning">Restart Puzzle</button>
+          <button id="skip-puzzle-btn" class="btn btn-outline-secondary">Skip</button>
+        </div>
+      </div>
+      <div id="puzzle1-complete" hidden class="text-center mb-3">
+        <div class="alert alert-success">You solved the puzzle! The door opens to a new chamber.</div>
+        <button id="continue-to-level2" class="btn btn-success">Continue Adventure</button>
+      </div>
+    </section>
+
+    <!-- Simon/Memory Pattern Puzzle -->
+    <section id="simon-section" aria-label="Memory Pattern Puzzle" hidden>
+      <div class="card p-4 mb-3">
+        <h2 class="mb-3">Memory Pattern Puzzle</h2>
+        <div class="d-flex justify-content-center gap-3 mb-2" id="simon-board">
+          <!-- Simon buttons will be generated here -->
+        </div>
+        <div id="simon-caption" aria-live="polite" class="mb-3"></div>
+        <div class="d-flex gap-2 justify-content-center mb-3">
+          <button id="restart-simon-btn" class="btn btn-warning">Restart Pattern</button>
+          <button id="skip-simon-btn" class="btn btn-outline-secondary">Skip</button>
+        </div>
+      </div>
+      <div id="simon-complete" hidden class="text-center mb-3">
+        <div class="alert alert-success">Great memory! You unlock the next part of the adventure.</div>
+        <button id="finish-adventure" class="btn btn-success">Finish Adventure</button>
+      </div>
+    </section>
+
+    <!-- Adventure Complete -->
+    <section id="adventure-complete" hidden>
+      <div class="alert alert-primary text-center">
+        <h2>Congratulations!</h2>
+        <p>You've completed the Accessible Puzzle Adventure.<br>
+        Thank you for playing!</p>
+      </div>
+      <div class="text-center">
+        <button id="restart-adventure" class="btn btn-primary">Restart Adventure</button>
+      </div>
+    </section>
+
+    <!-- Settings -->
     <section id="settings-panel" hidden aria-label="Settings" class="card p-4 mx-auto" style="max-width: 420px;">
       <h2 class="mb-3">Accessibility Settings</h2>
       <form>
