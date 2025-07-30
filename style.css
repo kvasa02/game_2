@@ -55,6 +55,38 @@ body {
   background: var(--tile-win);
   border-color: var(--tile-win);
   color: #fff;
+  animation: tile-win-pop 0.6s;
+}
+
+@keyframes tile-win-pop {
+  0% { transform: scale(1);}
+  50% {transform: scale(1.15);}
+  100% {transform: scale(1);}
+}
+
+.simon-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  outline: none;
+  border: 3px solid var(--accent);
+  margin: 0 12px;
+  background: #fff;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(60,60,60,0.08);
+  font-size: 2em;
+  cursor: pointer;
+}
+.simon-btn:focus {
+  border: 4px solid var(--tile-focus);
+  box-shadow: 0 0 0 4px #d0e6ff;
+  z-index: 2;
+}
+.simon-btn.active,
+.simon-btn.simon-animate {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--tile-win);
 }
 
 .high-contrast {
@@ -71,12 +103,12 @@ body {
   --font: 'OpenDyslexic', Arial, sans-serif;
 }
 
-#puzzle-caption {
+#puzzle-caption, #simon-caption {
   min-height: 2.2em;
   font-size: 1.1em;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   #puzzle-board {
     grid-template-columns: repeat(3, 18vw);
     grid-template-rows: repeat(3, 18vw);
@@ -87,5 +119,10 @@ body {
     width: 18vw;
     height: 18vw;
     font-size: 1.5em;
+  }
+  .simon-btn {
+    width: 18vw;
+    height: 18vw;
+    font-size: 1.2em;
   }
 }
