@@ -1,0 +1,125 @@
+:root {
+  --bg: #f9fafc;
+  --fg: #16191d;
+  --accent: #2969c7;
+  --tile: #fff;
+  --tile-border: #aaa;
+  --tile-focus: #2969c7;
+  --tile-win: #60b246;
+  --font: Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  margin: 0;
+  min-height: 100vh;
+  font-size: 18px;
+}
+
+header, main, section, footer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+nav {
+  margin-bottom: 1.5em;
+}
+
+button {
+  font-size: 1em;
+  margin: 0.5em 0.7em 0.5em 0;
+  padding: 0.6em 1.6em;
+  border-radius: 0.3em;
+  border: 1.5px solid var(--accent);
+  background: #fff;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+button:focus {
+  outline: 2.5px solid var(--tile-focus);
+}
+
+#puzzle-board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 7px;
+  margin: 2em auto 1em auto;
+  width: 264px;
+  outline: none;
+}
+.puzzle-tile {
+  width: 80px;
+  height: 80px;
+  background: var(--tile);
+  border: 2px solid var(--tile-border);
+  border-radius: 0.5em;
+  font-size: 2em;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.puzzle-tile:focus {
+  border: 3px solid var(--tile-focus);
+  z-index: 2;
+}
+.puzzle-tile.empty {
+  background: #eee;
+  color: transparent;
+  border-style: dashed;
+  cursor: default;
+}
+
+.puzzle-tile.win {
+  background: var(--tile-win);
+  border-color: var(--tile-win);
+  color: #fff;
+}
+
+.high-contrast {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #ff0;
+  --tile: #222;
+  --tile-border: #fff;
+  --tile-focus: #ff0;
+  --tile-win: #0f0;
+}
+
+.dyslexia-font {
+  --font: 'OpenDyslexic', Arial, sans-serif;
+}
+
+#puzzle-caption {
+  min-height: 2.2em;
+  margin-bottom: 1.2em;
+  font-size: 1.1em;
+}
+
+footer {
+  margin-top: 2em;
+  color: #888;
+  text-align: center;
+  font-size: 1em;
+}
+
+@media (max-width: 500px) {
+  #puzzle-board {
+    grid-template-columns: repeat(3, 18vw);
+    grid-template-rows: repeat(3, 18vw);
+    width: 100vw;
+    max-width: 98vw;
+  }
+  .puzzle-tile {
+    width: 18vw;
+    height: 18vw;
+    font-size: 1.5em;
+  }
+}
