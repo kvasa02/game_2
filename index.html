@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Accessible Puzzle Adventure</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="game-title">Accessible Puzzle Adventure</h1>
+      <nav aria-label="Main menu">
+        <button id="start-btn">Start Game</button>
+        <button id="settings-btn">Settings</button>
+      </nav>
+    </header>
+
+    <section id="story" hidden aria-live="polite">
+      <h2>Adventure Begins!</h2>
+      <p id="story-text">
+        You arrive at the ancient temple. To open the door, solve the puzzle below.
+      </p>
+    </section>
+
+    <section id="puzzle-section" aria-label="Puzzle" hidden>
+      <h2 id="puzzle-title">Sliding Puzzle</h2>
+      <div id="puzzle-board" tabindex="0" aria-label="Sliding puzzle board"></div>
+      <div id="puzzle-caption" aria-live="polite"></div>
+      <button id="restart-puzzle-btn">Restart Puzzle</button>
+      <button id="next-story-btn" hidden>Continue Adventure</button>
+    </section>
+
+    <section id="settings-panel" hidden aria-label="Settings">
+      <h2>Accessibility Settings</h2>
+      <form>
+        <label>
+          <input type="checkbox" id="high-contrast" />
+          High Contrast Mode
+        </label>
+        <label>
+          <input type="checkbox" id="dyslexia-font" />
+          Dyslexia-Friendly Font
+        </label>
+        <label>
+          <input type="checkbox" id="audio-cues" checked />
+          Enable Audio Cues
+        </label>
+        <label>
+          <input type="checkbox" id="captions" checked />
+          Show Audio Captions
+        </label>
+        <button type="button" id="apply-settings-btn">Apply</button>
+        <button type="button" id="back-btn">Back</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© Accessible Puzzle Adventure | <a href="https://github.com/kvasa02/accessible-puzzle-adventure" target="_blank">Source</a></p>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
