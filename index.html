@@ -4,61 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Accessible Puzzle Adventure</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <header>
-      <h1 id="game-title">Accessible Puzzle Adventure</h1>
-      <nav aria-label="Main menu">
-        <button id="start-btn">Start Game</button>
-        <button id="settings-btn">Settings</button>
+  <main class="container py-4">
+    <header class="mb-4">
+      <h1 id="game-title" class="text-center mb-3">Accessible Puzzle Adventure</h1>
+      <nav aria-label="Main menu" class="d-flex justify-content-center gap-3">
+        <button id="start-btn" class="btn btn-primary">Start Game</button>
+        <button id="settings-btn" class="btn btn-secondary">Settings</button>
       </nav>
     </header>
 
-    <section id="story" hidden aria-live="polite">
+    <section id="story" hidden aria-live="polite" class="mb-4">
       <h2>Adventure Begins!</h2>
-      <p id="story-text">
+      <p id="story-text" class="lead">
         You arrive at the ancient temple. To open the door, solve the puzzle below.
       </p>
     </section>
 
     <section id="puzzle-section" aria-label="Puzzle" hidden>
-      <h2 id="puzzle-title">Sliding Puzzle</h2>
-      <div id="puzzle-board" tabindex="0" aria-label="Sliding puzzle board"></div>
-      <div id="puzzle-caption" aria-live="polite"></div>
-      <button id="restart-puzzle-btn">Restart Puzzle</button>
-      <button id="next-story-btn" hidden>Continue Adventure</button>
+      <h2 id="puzzle-title" class="mb-3">Sliding Puzzle</h2>
+      <div id="puzzle-board" tabindex="0" aria-label="Sliding puzzle board" class="mx-auto mb-3"></div>
+      <div id="puzzle-caption" aria-live="polite" class="mb-3"></div>
+      <div class="d-flex gap-2 justify-content-center mb-3">
+        <button id="restart-puzzle-btn" class="btn btn-warning">Restart Puzzle</button>
+        <button id="next-story-btn" class="btn btn-success" hidden>Continue Adventure</button>
+      </div>
     </section>
 
-    <section id="settings-panel" hidden aria-label="Settings">
-      <h2>Accessibility Settings</h2>
+    <section id="settings-panel" hidden aria-label="Settings" class="card p-4 mx-auto" style="max-width: 420px;">
+      <h2 class="mb-3">Accessibility Settings</h2>
       <form>
-        <label>
-          <input type="checkbox" id="high-contrast" />
-          High Contrast Mode
-        </label>
-        <label>
-          <input type="checkbox" id="dyslexia-font" />
-          Dyslexia-Friendly Font
-        </label>
-        <label>
-          <input type="checkbox" id="audio-cues" checked />
-          Enable Audio Cues
-        </label>
-        <label>
-          <input type="checkbox" id="captions" checked />
-          Show Audio Captions
-        </label>
-        <button type="button" id="apply-settings-btn">Apply</button>
-        <button type="button" id="back-btn">Back</button>
+        <div class="form-check mb-2">
+          <input type="checkbox" class="form-check-input" id="high-contrast" />
+          <label class="form-check-label" for="high-contrast">High Contrast Mode</label>
+        </div>
+        <div class="form-check mb-2">
+          <input type="checkbox" class="form-check-input" id="dyslexia-font" />
+          <label class="form-check-label" for="dyslexia-font">Dyslexia-Friendly Font</label>
+        </div>
+        <div class="form-check mb-2">
+          <input type="checkbox" class="form-check-input" id="audio-cues" checked />
+          <label class="form-check-label" for="audio-cues">Enable Audio Cues</label>
+        </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" class="form-check-input" id="captions" checked />
+          <label class="form-check-label" for="captions">Show Audio Captions</label>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="button" id="apply-settings-btn" class="btn btn-primary flex-grow-1">Apply</button>
+          <button type="button" id="back-btn" class="btn btn-secondary flex-grow-1">Back</button>
+        </div>
       </form>
     </section>
 
-    <footer>
+    <footer class="text-center mt-5">
       <p>© Accessible Puzzle Adventure | <a href="https://github.com/kvasa02/accessible-puzzle-adventure" target="_blank">Source</a></p>
     </footer>
   </main>
+  <!-- Bootstrap JS (optional, for accessibility and focus management) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
